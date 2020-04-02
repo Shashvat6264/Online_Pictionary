@@ -1,0 +1,5 @@
+venv/
+.DS_Store
+src/chatapp/__pycache__/
+src/chat/__pycache__/
+src/chatapp/migrations/__pycache__/
