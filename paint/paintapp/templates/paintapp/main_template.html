@@ -1,0 +1,16 @@
+{% load static %}
+<html>
+<head>
+    <title>Paint App</title>
+</head>
+<body>
+    <div align="right">
+        <a href="/">Home</a>
+        <a href="/files">Gallery</a>
+    </div>
+    <hr>
+    {% block content %}
+    {% endblock %}
+</body>
+<script src = {% static 'paintapp/script.js' %}></script>
+</html>
