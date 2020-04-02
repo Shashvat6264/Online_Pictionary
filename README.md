@@ -1,5 +1,6 @@
 # Online_Pictionary [WIP]
 A web platform to play pictionary online with friends
+NOTICE - FRAMEWORK IS FLASK NOW.
 
 ## Components
 1. Chat Room - Flask_SocketIO 
@@ -21,3 +22,11 @@ ML Based authentication against alphabets
 6. Create a ScoreBoard.
 7. Integrate the game loop as in loop through all clients to appoint drawer and watchers. 
 8. Disable editing chat room and Enable editing sketch pad for Drawer and vice versa for the watchers. 
+
+## How to use it right now
+1. The folder chat app contains the integrated project so far. 
+2. Run the main.py by 
+```bash
+python main.py
+```
+3. Go to your browser and enter the URL http://127.0.0.1:5000/
