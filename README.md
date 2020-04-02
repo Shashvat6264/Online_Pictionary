@@ -20,8 +20,9 @@ ML Based authentication against alphabets
 4. Authenticate a Person's ID
 5. Create Rooms according to Room IDs (currently all sockets come in the same room) instead create a framework to create as well as new rooms.
 6. Create a ScoreBoard.
-7. Integrate the game loop as in loop through all clients to appoint drawer and watchers. 
-8. Disable editing chat room and Enable editing sketch pad for Drawer and vice versa for the watchers. 
+7. Integrate the game loop as in loop through all clients to appoint drawer and watchers and end the round according to either time or the correct answer by detecting the keyword. 
+8. Disable editing chat room and Enable editing sketch pad for Drawer and vice versa for the watchers.
+9. Assign a Keyword to the decided Drawer.
 
 ## How to use it right now
 1. The folder chat app contains the integrated project so far. 
