@@ -4,7 +4,7 @@
     <title>Flask_Chat_App</title>
   </head>
   <body>
-
+    <h1>Hi, {{ username }}</h1>
     <h3 style='color: #ccc;font-size: 30px;'>No message yet in {{ room }}</h3>
     <div class="message_holder"></div>
 
@@ -108,18 +108,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script type="text/javascript">
       var socket = io.connect('http://' + document.domain + ':' + location.port);
+      var username;
       // var canvas = document.getElementById('paint');
       socket.on( 'connect', function() {
         socket.emit( 'join', {
-          message : 'Someone Joined..', 
-          room : '{{ room }}'
+          // username = '{{ username }}',
+          message : 'I joined', 
+          room : '{{ room }}',
+          username: '{{ username }}'
         } )
         var form = $( 'form' ).on( 'submit', function( e ) {
           e.preventDefault()
           let user_input = $( 'input.message' ).val()
           socket.emit( 'send_msg', {
+            // username = '{{ username }}',
             message : user_input,
-            room : '{{ room }}'
+            room : '{{ room }}',
+            username : '{{ username }}'
           } )
           $( 'input.message' ).val( '' ).focus()
         } )
@@ -127,7 +132,7 @@
       socket.on( 'print_msg', function( msg ) {
         console.log( msg )
         $( 'h3' ).remove()
-        $( 'div.message_holder' ).append( '<div>'+msg.message+'</div>' )
+        $( 'div.message_holder' ).append( '<div>'+msg.username+ ':' +msg.message+'</div>' )
       })
     </script>
   </body>

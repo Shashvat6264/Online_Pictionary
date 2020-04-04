@@ -6,14 +6,28 @@
   <body>
     <form action="" method="POST">
       <input type="text" class="username" placeholder="User Name"/>
-      <input type="number" class="room" placeholder="Messages"/>
+      <input type="number" class="room" placeholder="Room"/>
       <input type="submit"/>
     </form>
+    <a div="url" href="#">Connect me to the room</a>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
     <script type="text/javascript">
       var socket = io.connect('http://' + document.domain + ':' + location.port);
+      socket.on( 'connect', function() {
+        var form = $( 'form' ).on( 'submit', function( e ) {
+          e.preventDefault()
+          let username = $( 'input.username' ).val()
+          let room = $( 'input.room' ).val()
+          socket.emit( 'user', {
+            username : username,
+            room : room
+          } )
+          window.open('http://' + document.domain + ':' + location.port + '/' + username + '/' + room)
+        } )
+        });
+      
     </script>
   </body>
   </html>
