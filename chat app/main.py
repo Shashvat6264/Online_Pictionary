@@ -29,7 +29,6 @@ def messageReceived(methods=['GET', 'POST']):
 
 @socketio.on('join')
 def handle_my_custom_event(json, method=['GET', 'POST']):
-    # print(username)
     print('Joined' + str(json))
     join_room(int(json['room']))
     socketio.emit('print_msg',json, to=int(json['room']),callback=messageReceived)
@@ -39,6 +38,11 @@ def handle_my_custom_event(json, method=['GET', 'POST']):
 def handle_my_custom_event(json, methods=['GET', 'POST']):
     print('received my event: ' + str(json))
     socketio.emit('print_msg', json, to=int(json['room']) ,callback=messageReceived)
+
+@socketio.on('mouse')
+def handle_my_custom_event(json, method=['GET', 'POST']):
+    print('Painted' + str(json))
+    socketio.emit('paint',json , to=int(json['room']), callback=messageReceived)
 
 if __name__ == '__main__':
     socketio.run(app, debug=True)
